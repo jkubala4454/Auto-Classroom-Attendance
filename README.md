@@ -10,7 +10,9 @@ Please be kind.  I am very much a noob and this is my first project.  I am worki
 ### Prerequisites
 
 Python
+
 PHP
+
 MariaDB
 
 ### Installing
