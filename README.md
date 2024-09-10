@@ -9,8 +9,6 @@ Please be kind.  I am very much a noob and this is my first project.  I am worki
 
 ### Prerequisites
 
-Python
-
 PHP
 
 MariaDB
@@ -18,7 +16,7 @@ MariaDB
 
 ### Installing
 
-main must be run from an IDE at this time.
+
 
 
 ## Deployment
@@ -27,7 +25,6 @@ This is not ready for deployment
 
 ## Built With
 
-* [PyCharm](https://www.jetbrains.com/pycharm/) - The IDE used
 
 ## Contributing
 
