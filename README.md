@@ -9,7 +9,9 @@ Please be kind.  I am very much a noob and this is my first project.  I am worki
 
 ### Prerequisites
 Webserver
+
 PHP
+
 MariaDB
 
 
@@ -24,15 +26,21 @@ This is not ready for deployment
 
 ## Built With
 Visual Studio Code
+
 Apache
+
 PHP
+
 MariaDB
+
 
 ## Contributing
 
 I would very much take any and all help, especially with the front end.  I hope to have a web-based front-end for the teacher eventually.
 
 ## Versioning
+
+Version 0.1.0
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
