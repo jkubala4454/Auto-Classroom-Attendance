@@ -8,14 +8,13 @@ Please be kind.  I am very much a noob and this is my first project.  I am worki
 
 
 ### Prerequisites
-
+Webserver
 PHP
-
 MariaDB
 
 
 ### Installing
-
+clone repository into a web server directory
 
 
 
@@ -24,7 +23,10 @@ MariaDB
 This is not ready for deployment
 
 ## Built With
-
+Visual Studio Code
+Apache
+PHP
+MariaDB
 
 ## Contributing
 
