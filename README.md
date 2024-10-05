@@ -36,7 +36,7 @@ MariaDB
 
 ## Contributing
 
-I would very much take any and all help, especially with the front end.  I hope to have a web-based front-end for the teacher eventually.
+I would very much take any and all help.  I'm also interested in any ideas you may have to make this project better.
 
 ## Versioning
 Current Version: 0.2.0
