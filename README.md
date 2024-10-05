@@ -39,10 +39,14 @@ MariaDB
 I would very much take any and all help, especially with the front end.  I hope to have a web-based front-end for the teacher eventually.
 
 ## Versioning
+Current Version: 0.2.0
+Implemented Block Scheduling.
 
 Version 0.1.0
+Initial Commit
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+
+We use [SemVer](http://semver.org/) for versioning. 
 
 ## Authors
 
