@@ -1,5 +1,5 @@
 # Auto Classroom Attendance
-This application may be run on a PC to automatically scan students' ID card using a generic bar code scanner and output the correct attendance status of each student in the class.
+This application is setup on a webserver. Use a device to browse to the student_sign_in.php to automatically scan students' ID card using a generic bar code scanner and output the correct attendance status of each student in the class.
 
 Please be kind.  I am very much a noob and this is my first project.  I am working on this project to help alleviate some of the tasks I have at the beginning of class, and I HATE taking attendance.
 
