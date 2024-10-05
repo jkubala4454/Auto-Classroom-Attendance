@@ -4,7 +4,7 @@ include('db.php');
 
 // Admin username and password
 $username = 'admin';
-$password = '***REMOVED***';  // Plain text password
+$password = 'password';  // Plain text password
 
 // Hash the password
 $hashed_password = password_hash($password, PASSWORD_BCRYPT);
