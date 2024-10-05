@@ -1,5 +1,6 @@
 <?php
 include('db.php');  // Include database connection
+include('functions.php');  // Assuming getCurrentDayType() is in this file
 
 // Assuming student_id is sent via POST when student submits ID
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -12,21 +13,37 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $current_time = date('H:i:s');
     $current_date = date('Y-m-d');
 
-    // Echo the current time for debugging
-    echo "Current time: $current_time<br>";
+    // Get the current day type (this could be 'A Day', 'B Day', 'Weekend', or 'Holiday')
+    $current_day_type = getCurrentDayType();  // Implemented in functions.php
 
-    // Fetch the class schedule for the current time
-    $query = "SELECT * FROM class_schedule WHERE start_time <= ? AND end_time >= ?";
+    // Check if it's a weekend or holiday
+    if ($current_day_type == 'Weekend' || $current_day_type == 'Holiday') {
+        echo "No school today. Attendance cannot be marked.";
+        exit;
+    }
+
+    // Define the sign-in window (e.g., 15 minutes before class)
+    $sign_in_window_seconds = 15 * 60;  // 15 minutes
+
+    // Fetch the class schedule for the current time and day type
+    $query = "SELECT * FROM class_schedule WHERE 
+        ((start_time <= ? AND end_time >= ?) OR 
+        (start_time > ? AND TIMESTAMPDIFF(SECOND, ?, start_time) <= ?))
+        AND day_type = ?";
+
+    // Prepare the statement
     $stmt = $conn->prepare($query);
     if (!$stmt) {
         die('Query preparation failed: ' . $conn->error);  // Error handling
     }
-    $stmt->bind_param("ss", $current_time, $current_time);
+
+    // Bind parameters
+    $stmt->bind_param("ssssss", $current_time, $current_time, $current_time, $current_time, $sign_in_window_seconds, $current_day_type);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        // There is an active class at the current time
+        // There is an active or upcoming class
         $class = $result->fetch_assoc();
         $class_period = $class['class_period'];
         $class_start_time = $class['start_time'];
@@ -47,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // Determine attendance status
             if ($time_diff <= 0) {
-                $status = 'Present';  // On time
+                $status = 'Present';  // On time or early
             } elseif ($time_diff < 600) {
                 $status = 'Tardy';  // Less than 10 minutes late
             } elseif ($time_diff < 2700) {
@@ -74,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $stmt_student_class->close();
     } else {
-        echo "No class scheduled at this time.";
+        echo "No class scheduled or sign-in too early.";
     }
 
     $stmt->close();
@@ -97,19 +114,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             var seconds = now.getSeconds();
             var ampm = hours >= 12 ? 'PM' : 'AM';
 
-        // Convert the hours to 12-hour format
+            // Convert the hours to 12-hour format
             hours = hours % 12;
             hours = hours ? hours : 12;  // If the hour is 0, set it to 12 (midnight or noon)
 
-        // Add leading zeros to minutes and seconds
+            // Add leading zeros to minutes and seconds
             minutes = minutes < 10 ? "0" + minutes : minutes;
             seconds = seconds < 10 ? "0" + seconds : seconds;
 
-        // Display the current time in 12-hour format
+            // Display the current time in 12-hour format
             var timeString = hours + ":" + minutes + ":" + seconds + " " + ampm;
             document.getElementById('clock').textContent = timeString;
         }
-
 
         // Function to auto-focus on the student_id field when the page loads
         function focusStudentID() {
