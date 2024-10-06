@@ -13,7 +13,7 @@ This web-based application streamlines the process of recording student attendan
 
 ## Screenshots
 
-![Sign-in Page](path/to/signin_screenshot.png) To be added
+![Sign-in Page](screenshots/student_signin.png) To be added
 *Student Sign-in Page*
 
 ![Attendance Dashboard](path/to/dashboard_screenshot.png) To be added
