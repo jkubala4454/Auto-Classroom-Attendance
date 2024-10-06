@@ -1,62 +1,80 @@
 # Auto Classroom Attendance
-This application is setup on a webserver. Use a device to browse to the student_sign_in.php to automatically scan students' ID card using a generic bar code scanner and output the correct attendance status of each student in the class.  Student will initially be marked absent until they sign-in.  Then Present if on time, Tardy if less than 10 minutes late, or Late if more than 10 minutes but less than 45 minutes late.  If a student signs-in more than 45 minutes late, they will remain marked as absent.
 
-Please be kind.  This is my first project.  I am working on this project to help alleviate some of the tasks I have at the beginning of class, and I HATE taking attendance and tracking tardies.
+An automated system for tracking student attendance using barcode scanners.
 
+## Overview
+
+This web-based application streamlines the process of recording student attendance. Students can sign in by scanning their ID cards with a generic barcode scanner. The system automatically updates attendance status based on arrival time:
+
+- Present: On time
+- Tardy: Less than 10 minutes late
+- Late: Between 10 and 45 minutes late
+- Absent: More than 45 minutes late or not signed in
+
+## Features
+
+- Automatic attendance tracking
+- Real-time status updates
+- Support for block scheduling
+- User-friendly interface
 
 ## Getting Started
 
-
 ### Prerequisites
-Webserver
 
-PHP
+- Web server (e.g., Apache)
+- PHP
+- MariaDB
 
-MariaDB
+### Installation
 
+1. Clone the repository into your web server directory:
+git clone https://github.com/jkubala4454/Auto-Classroom-Attendance.git
 
-### Installing
-clone repository into a web server directory
+2. Configure your web server to serve the application
+3. Set up the database (instructions to be added)
 
+## Usage
 
+Navigate to `public/index.html` on your web browser to access the sign-in page.
+Navigate to 'public/sign_in.php' on your web browser to access the login for the teacher dashboard.
 
 ## Deployment
 
-This is not ready for deployment
+**Note:** This project is currently in development and not ready for production deployment.
 
 ## Built With
-Visual Studio Code
 
-Apache
-
-PHP
-
-MariaDB
-
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Apache](https://httpd.apache.org/)
+- [PHP](https://www.php.net/)
+- [MariaDB](https://mariadb.org/)
 
 ## Contributing
 
-I would very much take any and all help.  I'm also interested in any ideas you may have to make this project better.
+We welcome contributions to improve this project. Please feel free to submit pull requests or open issues with your ideas and suggestions.
 
 ## Versioning
-Current Version: 0.2.0
-Implemented Block Scheduling.
-
-Version 0.1.0
-Initial Commit
-
 
 We use [SemVer](http://semver.org/) for versioning. 
 
+### Version History
+
+- 0.2.0: Implemented block scheduling
+- 0.1.0: Initial commit
+
 ## Authors
 
-* *John Kubala** - *Initial work* - [Auto-Classroom-Attendance](https://github.com/jkubala4454)
+- **John Kubala** - *Initial work* - [jkubala4454](https://github.com/jkubala4454)
 
 ## License
 
-This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
-* To all those overwhelmed teachers trying to take just one thing off of their plate.
+- Dedicated to all the overwhelmed teachers trying to simplify their daily tasks.
 
+---
+
+**Note:** This is a work in progress. Feedback and contributions are greatly appreciated as we strive to make this tool more useful for educators.
