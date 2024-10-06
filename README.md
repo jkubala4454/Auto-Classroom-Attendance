@@ -68,8 +68,7 @@ We use [SemVer](http://semver.org/) for versioning.
 
 ### Version History
 
-- 0.2.0: Implemented block scheduling
-- 0.1.0: Initial commit
+See https://github.com/jkubala4454/Auto-Classroom-Attendance/releases
 
 ## Authors
 
