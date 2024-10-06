@@ -45,7 +45,7 @@ git clone https://github.com/jkubala4454/Auto-Classroom-Attendance.git
 ## Usage
 
 Navigate to `public/index.html` on your web browser to access the sign-in page.
-Navigate to 'public/sign_in.php' on your web browser to access the login for the teacher dashboard.
+Navigate to `public/login.php` on your web browser to access the login for the teacher dashboard.
 
 ## Deployment
 
