@@ -16,7 +16,7 @@ This web-based application streamlines the process of recording student attendan
 ![Sign-in Page](screenshots/student_signin.png)
 *Student Sign-in Page*
 
-![Attendance Dashboard](path/to/dashboard_screenshot.png) To be added
+![Attendance Dashboard](screenshots/admin_dashboard.png)
 *Teacher's Attendance Dashboard*
 
 ## Features
