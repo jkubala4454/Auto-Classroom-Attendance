@@ -1,6 +1,7 @@
 <?php
 function getCurrentDayType() {
-    include('db.php'); // Include the database connection
+    include('config.php');  // Include the config file first
+    include(ROOT_PATH . '/includes/db.php'); // Include the database connection
     
     // Get the current date
     $current_date = date("Y-m-d");
