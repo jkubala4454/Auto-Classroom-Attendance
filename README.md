@@ -39,12 +39,8 @@ MariaDB
 I would very much take any and all help.  I'm also interested in any ideas you may have to make this project better.
 
 ## Versioning
-Current Version: 0.2.0
-Implemented Block Scheduling.
 
-Version 0.1.0
-Initial Commit
-
+See https://github.com/jkubala4454/Auto-Classroom-Attendance/releases
 
 We use [SemVer](http://semver.org/) for versioning. 
 
