@@ -1,6 +1,7 @@
 <?php
 session_start();
-include('db.php'); // Include the database connection
+include('../includes/config.php');  // Include the config file first
+include(ROOT_PATH . '/includes/db.php'); // Include database connection
 
 // Check if the form is submitted
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
