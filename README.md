@@ -1,7 +1,7 @@
 # Auto Classroom Attendance
-This application is setup on a webserver. Use a device to browse to the student_sign_in.php to automatically scan students' ID card using a generic bar code scanner and output the correct attendance status of each student in the class.
+This application is setup on a webserver. Use a device to browse to the student_sign_in.php to automatically scan students' ID card using a generic bar code scanner and output the correct attendance status of each student in the class.  Student will initially be marked absent until they sign-in.  Then Present if on time, Tardy if less than 10 minutes late, or Late if more than 10 minutes but less than 45 minutes late.  If a student signs-in more than 45 minutes late, they will remain marked as absent.
 
-Please be kind.  I am very much a noob and this is my first project.  I am working on this project to help alleviate some of the tasks I have at the beginning of class, and I HATE taking attendance.
+Please be kind.  This is my first project.  I am working on this project to help alleviate some of the tasks I have at the beginning of class, and I HATE taking attendance and tracking tardies.
 
 
 ## Getting Started
