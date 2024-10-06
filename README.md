@@ -11,6 +11,14 @@ This web-based application streamlines the process of recording student attendan
 - Late: Between 10 and 45 minutes late
 - Absent: More than 45 minutes late or not signed in
 
+## Screenshots
+
+![Sign-in Page](path/to/signin_screenshot.png) To be added
+*Student Sign-in Page*
+
+![Attendance Dashboard](path/to/dashboard_screenshot.png) To be added
+*Teacher's Attendance Dashboard*
+
 ## Features
 
 - Automatic attendance tracking
