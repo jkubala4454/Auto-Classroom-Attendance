@@ -1,6 +1,6 @@
 <?php
-// Database connection (assuming `db.php` handles the connection)
-include('db.php');
+include('../includes/config.php');  // Include the config file first
+include(ROOT_PATH . '/includes/db.php'); // Include database connection
 
 // Admin username and password
 $username = 'admin';
