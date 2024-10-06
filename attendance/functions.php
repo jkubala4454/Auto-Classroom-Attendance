@@ -1,4 +1,4 @@
-// functions.php
+<?php
 function getCurrentDayType() {
     include('db.php'); // Include the database connection
     
@@ -25,3 +25,4 @@ function getCurrentDayType() {
 
     $stmt->close();
 }
+?>
