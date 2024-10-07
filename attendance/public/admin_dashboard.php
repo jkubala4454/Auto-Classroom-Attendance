@@ -26,7 +26,7 @@
             let classPeriodSelected = $('#class_period').val();
 
             $.ajax({
-                url: '../public/fetch_attendance.php',
+                url: '../includes/fetch_attendance.php',
                 method: 'POST',
                 data: {
                     date: dateSelected,
