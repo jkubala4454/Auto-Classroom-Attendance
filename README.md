@@ -1,58 +1,92 @@
 # Auto Classroom Attendance
-This application is setup on a webserver. Use a device to browse to the student_sign_in.php to automatically scan students' ID card using a generic bar code scanner and output the correct attendance status of each student in the class.
 
-Please be kind.  I am very much a noob and this is my first project.  I am working on this project to help alleviate some of the tasks I have at the beginning of class, and I HATE taking attendance.
+An automated system for tracking student attendance using barcode scanners.
 
+## Overview
+
+This web-based application streamlines the process of recording student attendance. Students can sign in by scanning their ID cards with a generic barcode scanner. The system automatically updates attendance status based on arrival time:
+
+- Present: On time
+- Tardy: Less than 10 minutes late
+- Late: Between 10 and 45 minutes late
+- Absent: More than 45 minutes late or not signed in
+
+## Screenshots
+
+![Sign-in Page](screenshots/student_signin.png)
+*Student Sign-in Page*
+
+![Attendance Dashboard](screenshots/admin_dashboard.png)
+*Teacher's Attendance Dashboard*
+
+## Features
+
+- Automatic attendance tracking
+- Real-time status updates
+- Support for block scheduling
+- User-friendly interface
 
 ## Getting Started
 
-
 ### Prerequisites
-Webserver
 
-PHP
+- Web server (e.g., Apache)
+- PHP
+- MariaDB
 
-MariaDB
+### Installation
 
+1. Clone the repository into your web server directory:
+git clone https://github.com/jkubala4454/Auto-Classroom-Attendance.git
 
-### Installing
-clone repository into a web server directory
+2. Configure your web server to serve the application
+3. Using MariaDB command line or PHPAdmin, create the database attendance_db
+4. Import /includes/attendance_db.sql into your new database
+5. Edit /includes/students_with_classes.csv to reflect your students or leave the demo data
+6. Import the students using /includes/import_students.php
+7. Update the class_schedule table to reflect your school schedule.  Time is in 24h format.
 
+## Usage
 
+Navigate to `public/index.html` on your web browser to access the student sign-in page.
+Navigate to `public/login.php` on your web browser to access the login for the teacher dashboard.
 
 ## Deployment
 
-This is not ready for deployment
+**Note:** This project is currently in development and not ready for production deployment.
 
 ## Built With
-Visual Studio Code
 
-Apache
-
-PHP
-
-MariaDB
-
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Apache](https://httpd.apache.org/)
+- [PHP](https://www.php.net/)
+- [MariaDB](https://mariadb.org/)
 
 ## Contributing
 
-I would very much take any and all help.  I'm also interested in any ideas you may have to make this project better.
+We welcome contributions to improve this project. Please feel free to submit pull requests or open issues with your ideas and suggestions.
 
 ## Versioning
 
-See https://github.com/jkubala4454/Auto-Classroom-Attendance/releases
 
 We use [SemVer](http://semver.org/) for versioning. 
 
+### Version History
+
+See https://github.com/jkubala4454/Auto-Classroom-Attendance/releases
+
 ## Authors
 
-* *John Kubala** - *Initial work* - [Auto-Classroom-Attendance](https://github.com/jkubala4454)
+- **John Kubala** - *Initial work* - [jkubala4454](https://github.com/jkubala4454)
 
 ## License
 
-This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GPL License - see the [LICENSE.md](LICENSE.md) file for details.
 
 ## Acknowledgments
 
-* To all those overwhelmed teachers trying to take just one thing off of their plate.
+- Dedicated to all the overwhelmed teachers trying to simplify their daily tasks.
 
+---
+
+**Note:** This is a work in progress. Feedback and contributions are greatly appreciated as we strive to make this tool more useful for educators.

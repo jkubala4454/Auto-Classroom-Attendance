@@ -1,9 +1,12 @@
 <?php
+// This file is used to import student data from students_with_classes.csv to populate the database
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include('db.php');
+include('config.php');  // Include the config file first
+include(ROOT_PATH . '/includes/db.php'); // Include the database connection
 
 // Open the CSV file
 $file = fopen('students_with_classes.csv', 'r');

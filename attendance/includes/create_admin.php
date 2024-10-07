@@ -1,6 +1,9 @@
 <?php
-// Database connection (assuming `db.php` handles the connection)
-include('db.php');
+// This file will create an admin user who has access to the admin_dashboard.php after login.
+// This only needs to be run at least once to create at least one admin user
+
+include('../includes/config.php');  // Include the config file first
+include(ROOT_PATH . '/includes/db.php'); // Include database connection
 
 // Admin username and password
 $username = 'admin';

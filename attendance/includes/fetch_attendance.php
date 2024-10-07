@@ -1,6 +1,7 @@
 <?php
-include('db.php');
-include('functions.php');  // This brings in all functions defined in functions.php
+include('../includes/config.php');  // Include the config file first
+include(ROOT_PATH . '/includes/db.php'); // Include the database connection
+include(ROOT_PATH . '/includes/functions.php');  // This brings in all functions defined in functions.php
 
 // Call the function getCurrentDayType, store and display the result
 $current_day_type = getCurrentDayType();

@@ -1,5 +1,9 @@
 <?php
-include('db.php'); // Include your database connection
+// This file is used to import school_calendar.csv to populate the database
+// with the dates and day types. ex. Holiday, Weekend, A Day, B Day
+
+include('config.php');  // Include the config file first
+include(ROOT_PATH . '/includes/db.php'); // Include the database connection
 
 // Open the CSV file
 $file = fopen('school_calendar.csv', 'r');
