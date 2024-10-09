@@ -20,6 +20,7 @@
             justify-content: center;
             height: 100vh; /* Full height */
             margin: 0;
+            flex-direction: column;
         }
 
         .card {
@@ -35,7 +36,7 @@
             text-align: center;
             font-family: 'Arial', sans-serif;
             font-weight: 700;
-            color: #007bff; /* Bootstrap's primary color */
+            color: #800000; /* Custom maroon color */
         }
 
         label {
@@ -46,6 +47,33 @@
             margin-top: 1rem;
             font-weight: bold;
             text-align: center;
+        }
+
+        .mascot-placeholder {
+            height: 150px;
+            width: 150px;
+            background-color: #ccc;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            background-image: url('../images/mascot.png'); 
+            background-size: cover;
+            background-position: center;
+        }
+
+        .clock {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .custom-signin-btn {
+            background-color: #800000; /* Custom maroon color */
+            border-color: #800000; /* Set border color to match */
+            color: white; /* Set text color */
         }
     </style>
 
@@ -61,25 +89,80 @@
                 url: 'student_sign_in.php',
                 type: 'POST',
                 data: { student_id: studentID },
+                dataType: "json", // Expect JSON response
                 success: function(response) {
-                    document.getElementById('result').innerHTML = response;  // Display the response
+                    let jsonResponse;
+                    
+                    // Check if the response is already an object or needs to be parsed
+                    if (typeof response === 'object') {
+                        jsonResponse = response;  // It's already a JSON object
+                    } else {
+                        try {
+                            jsonResponse = JSON.parse(response);  // Try parsing as JSON
+                        } catch (e) {
+                            $('#result').html("<div class='alert alert-danger'>Invalid server response: " + response + "</div>");
+                            return;  // Stop further execution
+                        }
+                    }
+
+                    // Clear the previous result
+                    $('#result').empty();
+
+                    // Check if response is successful or contains an error
+                    if (jsonResponse.status === 'success') {
+                        $('#result').html("<div class='alert alert-success'>" + jsonResponse.message + "</div>");
+                    } else {
+                        $('#result').html("<div class='alert alert-danger'>" + jsonResponse.message + "</div>");
+                    }
 
                     // Clear the input field after submission
                     document.getElementById('student_id').value = '';
                 },
-                error: function() {
-                    document.getElementById('result').innerHTML = 'An error occurred. Please try again.';
+                error: function(jqXHR, textStatus, errorThrown) {
+                    $('#result').html("<div class='alert alert-danger'>An error occurred: " + textStatus + " - " + errorThrown + "</div>");
                 }
             });
         }
 
-        // Focus on the student ID field when the page loads
+        // Function to update the clock and date
+        function updateClockAndDate() {
+            const now = new Date();
+            const hours = now.getHours();
+            const minutes = now.getMinutes();
+            const seconds = now.getSeconds();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedHours = hours % 12 || 12;  // Convert to 12-hour format, use 12 instead of 0
+            const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;
+            const formattedSeconds = seconds < 10 ? '0' + seconds : seconds;
+
+            // Format clock time
+            const timeString = `${formattedHours}:${formattedMinutes}:${formattedSeconds} ${ampm}`;
+            document.getElementById('clock').textContent = timeString;
+
+            // Format date
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const currentDate = now.toLocaleDateString(undefined, options);
+            document.getElementById('date').textContent = currentDate;
+        }
+
+        // Update clock and date every second
+        setInterval(updateClockAndDate, 1000);
+
+        // Initial call to set clock and date immediately
         window.onload = function() {
+            updateClockAndDate();
             document.getElementById('student_id').focus();
         };
     </script>
 </head>
 <body>
+
+    <!-- Mascot Placeholder -->
+    <div class="mascot-placeholder"></div>
+
+    <!-- Current Date and Time -->
+    <div class="clock" id="clock"></div>
+    <div class="date" id="date"></div>
 
     <!-- Sign-In Form Container -->
     <div class="card">
@@ -92,12 +175,13 @@
                 <label for="student_id">Student ID:</label>
                 <input type="text" id="student_id" name="student_id" class="form-control" placeholder="Enter your Student ID" required autofocus>
             </div>
-            <button type="submit" class="btn btn-primary btn-block">Sign In</button>
+            <button type="submit" class="btn custom-signin-btn btn-block">Sign In</button>
         </form>
 
         <!-- Display the result from the server -->
         <div id="result" class="mt-3"></div>
     </div>
+
     <!-- Bootstrap JS and Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
