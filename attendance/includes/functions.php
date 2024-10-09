@@ -26,4 +26,18 @@ function getCurrentDayType() {
 
     $stmt->close();
 }
+// Function to determine attendance status based on time difference
+function getAttendanceStatus($time_diff) {
+    if ($time_diff <= 0) {  // On time or early, mark Present
+        return 'Present';
+    } elseif ($time_diff > 0 && $time_diff < 600) {  // Between 1 minute and 10 minutes late, mark Tardy
+        return 'Tardy';
+    } elseif ($time_diff >= 600 && $time_diff < 2700) {  // Between 11 minutes and 45 minutes late, mark L (Late or Partial Absence)
+        return 'L';
+    } else {  // More than 45 minutes late, mark Absent
+        return 'Absent';
+    }
+}
+
+
 ?>

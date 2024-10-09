@@ -95,12 +95,6 @@
         <div class="mt-4">
             <table class="table table-striped table-hover">
                 <thead class="thead-dark">
-                    <tr>
-                        <th>Student Name</th>
-                        <th>Class Period</th>
-                        <th>Status</th>
-                        <th>Check-in Time</th>
-                    </tr>
                 </thead>
                 <tbody id="attendance-table">
                     <!-- Attendance data will be populated here -->
