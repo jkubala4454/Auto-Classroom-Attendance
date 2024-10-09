@@ -137,10 +137,11 @@ try {
 
 // Check for any buffered output (HTML or otherwise)
 $buffered_output = ob_get_clean();
+/* Enable to log errors to error_log.txt
 if (!empty($buffered_output)) {
     // Log or handle the buffered output for debugging (this might include errors or warnings)
     file_put_contents('error_log.txt', $buffered_output);
-}
+} */
 
 // Ensure clean output by explicitly ending the buffer and returning JSON only
 echo json_encode($response);
