@@ -1,15 +1,24 @@
+## Auto Classroom Attendance Roadmap ##
+
+
 ## Phase 1: Core Functionality
 
-- [ ] **Digital Check-In**
-  - [ ] Implement basic digital check-in system
+- [X] **Digital Check-In**
+  - [X] Implement basic digital check-in system
 
-- [ ] **Real-Time Tracking**
-  - [ ] Design real-time attendance dashboard
-  - [ ] Implement instant status updates
+- [X] **Real-Time Tracking**
+  - [X] Design real-time attendance dashboard
+  - [X] Implement instant status updates
 
 - [ ] **Basic Reporting**
   - [ ] Develop daily attendance reports
   - [ ] Create simple data filtering options
+
+- [ ] **Student and Class Management**
+  - [ ] Develop interface for adding/removing students from classes
+  - [ ] Create functionality for adding and removing classes
+  - [ ] Implement system for managing class periods and times
+  - [ ] Develop options for block and non-block scheduling
 
 ## Phase 2: Enhanced Features
 
@@ -30,6 +39,7 @@
 - [ ] **Mobile Access**
   - [ ] Develop full-featured mobile app for teachers
   - [ ] Implement secure remote access to attendance data
+  - [ ] Develop mobile app for check-ins
   - [ ] Create QR code scanning feature
 
 - [ ] **Substitute Teacher Support**
@@ -75,3 +85,8 @@
 - [ ] **System Optimization**
   - [ ] Perform overall system performance review
   - [ ] Implement optimizations based on user feedback and usage data
+
+- [ ] **Advanced Class Management**
+  - [ ] Implement batch student import/export for classes
+  - [ ] Develop class merging and splitting features
+  - [ ] Create advanced scheduling options (e.g., rotating schedules, custom calendars)
