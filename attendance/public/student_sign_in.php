@@ -101,7 +101,27 @@ try {
                 $time_diff = strtotime($current_time) - strtotime($class_start_time);
                 $status = getAttendanceStatus($time_diff);
 
-                // Insert attendance record
+                // Query to check if the student has already signed in for this class period today
+                $query_check_attendance = "SELECT * FROM attendance WHERE student_id = ? AND class_period = ? AND date = ?";
+                $stmt_check_attendance = $conn->prepare($query_check_attendance);
+                if (!$stmt_check_attendance) {
+                    throw new Exception('Failed to prepare attendance check query: ' . $conn->error);
+                }
+
+                // Bind parameters and execute the query
+                $stmt_check_attendance->bind_param("sss", $student_id, $class_period, $current_date);
+                if (!$stmt_check_attendance->execute()) {
+                    throw new Exception('Failed to execute attendance check query: ' . $stmt_check_attendance->error);
+                }
+
+                $result_check_attendance = $stmt_check_attendance->get_result();
+
+                // If a record is found, return an error message
+                if ($result_check_attendance->num_rows > 0) {
+                    throw new Exception('Attendance has already been marked for this class period.');
+                }
+
+                // Insert attendance record if no record exists
                 $query_insert = "INSERT INTO attendance (student_id, class_period, status, check_in_time, date) VALUES (?, ?, ?, ?, ?)";
                 $stmt_insert = $conn->prepare($query_insert);
                 if (!$stmt_insert) {
@@ -137,11 +157,6 @@ try {
 
 // Check for any buffered output (HTML or otherwise)
 $buffered_output = ob_get_clean();
-/* Enable to log errors to error_log.txt
-if (!empty($buffered_output)) {
-    // Log or handle the buffered output for debugging (this might include errors or warnings)
-    file_put_contents('error_log.txt', $buffered_output);
-} */
 
 // Ensure clean output by explicitly ending the buffer and returning JSON only
 echo json_encode($response);
