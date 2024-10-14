@@ -1,4 +1,4 @@
-# Auto Classroom Attendance
+# Effortless Attendance
 
 An automated system for tracking student attendance using barcode scanners, RFID readers, or QR codes.
 
